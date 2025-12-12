@@ -37,14 +37,16 @@ The pipeline follows a modular design to ensure extensibility and separation of 
 
 ```mermaid
 graph TD
-    A[Input: Chat JSON + Context JSON] --> B[Parser (utils.py)]
-    B --> C{Orchestrator (main.py)}
-    C --> D[Metric 1: Latency & Cost]
-    C --> E[Metric 2: Relevance Evaluator]
-    C --> F[Metric 3: Hallucination Evaluator]
-    E --> G[Embedding Model (MiniLM)]
-    F --> H[NLI Model (Cross-Encoder)]
-    D & E & F --> I[Aggregated Report]
+    A["Input: Chat JSON + Context JSON"] --> B["Parser (utils.py)"]
+    B --> C{"Orchestrator (main.py)"}
+    C --> D["Metric 1: Latency & Cost"]
+    C --> E["Metric 2: Relevance Evaluator"]
+    C --> F["Metric 3: Hallucination Evaluator"]
+    E --> G["Embedding Model (MiniLM)"]
+    F --> H["NLI Model (Cross-Encoder)"]
+    D --> I["Aggregated Report"]
+    E --> I
+    F --> I
 ```
 
 # Why this architecture?
