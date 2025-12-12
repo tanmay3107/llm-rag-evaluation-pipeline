@@ -46,6 +46,7 @@ graph TD
     F --> H[NLI Model (Cross-Encoder)]
     D & E & F --> I[Aggregated Report]
 ```
+
 # Why this architecture?
 
 Modular evaluators: Each metric (relevance, hallucination) is a separate class in src/evaluators/.This allows us to swap models (e.g., upgrading to GPT-4 for judging) without breaking the main pipeline.
